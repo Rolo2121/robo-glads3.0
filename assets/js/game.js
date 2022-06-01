@@ -9,7 +9,12 @@ var enemyNames = ["Grevious", "Robot Devil", "Calulon"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-var fight = function() {
+console.log(enemyNames);
+console.log(enemyNames.length);
+console.log(enemyNames[0]);
+console.log(enemyNames[3]);
+
+var fight = function(enemyName) {
 
     window.alert("Welcome to the Robo Dome!");
     
@@ -35,26 +40,27 @@ var fight = function() {
           enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
         );
       
-        
         if (playerHealth <= 0) {
-          window.alert(playerName + " has died!");
+            window.alert(playerName + " has died!");
         } else {
-          window.alert(playerName + " still has " + playerHealth + " health left.");
+            window.alert(playerName + " still has " + playerHealth + " health left.");
+        }
+    } else if (promptFight === "skip" || promptFight === "SKIP") {
+        var confirmSkip = window.confirm("Are you sure you want to skip?");
+        if (confirmSkip) {
+            window.alert(playerName + " has skipped this fight. Goodbye!");
+            playerMoney = playerMoney - 2;
+        } else {
+            // fight(); 
         }
         
-        } else if (promptFight === "skip" || promptFight === "SKIP") {
-            var confirmSkip = window.confirm("Are you sure you want to skip?");
-            if (confirmSkip) {
-                window.alert(playerName + " has skipped this fight. Goodbye!");
-                playerMoney = playerMoney - 2;
-             } else {
-                    fight();
-             }
-            
-           
-        } else {
-            window.alert("You need to choose a valid option. Try again!");
-     }
+        
+    } else {
+        window.alert("You need to choose a valid option. Try again!");
+    }
+};    
+
+for (var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
 };
 
-// fight();

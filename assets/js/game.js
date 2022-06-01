@@ -78,7 +78,7 @@ var fight = function(enemyName) {
 
     var endGame = function() {
     if (playerHealth > 0) {
-        window.alert("Great job" + playerName + ", you've survived the game! You now have a score of " + playerMoney + "."); 
+        window.alert("Great job " + playerName + ", you've survived the game! You now have a score of " + playerMoney + "."); 
         } else {
         window.alert("You've lost " + playerName + "in battle!");
     }

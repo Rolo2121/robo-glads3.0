@@ -79,8 +79,9 @@ var fight = function(enemyName) {
             window.alert("You are the weakest robot! Goodbye!");
             break;
         }
-        
-        };
+    }
+    endGame();
+};
 
     var endGame = function() {
     if (playerHealth > 0) {
@@ -96,8 +97,8 @@ var fight = function(enemyName) {
         } else {
         window.alert("Thank you for playing Robot Gladiators! Come back soon!");
         }
-        }
-        endGame();
+        
+        
 };
 // end of end game loop
 var shop = function() {

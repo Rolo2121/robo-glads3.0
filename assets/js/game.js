@@ -9,10 +9,12 @@ var enemyNames = ["Grevious", "Robot Devil", "Calulon"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-console.log(enemyNames);
-console.log(enemyNames.length);
-console.log(enemyNames[0]);
-console.log(enemyNames[3]);
+var randomNumber = function(min, max) {
+    var value = Math.floor(Math.floor() * (max - min + 1) + min);
+
+    return value;
+};
+
 
 var fight = function(enemyName) {
     while (playerHealth > 0 && enemyHealth > 0) {
@@ -28,8 +30,8 @@ var fight = function(enemyName) {
         break;
     }
     }
-        
-        enemyHealth = enemyHealth - playerAttack;
+        var damage = randomNumber(playerAttack - 3, playerAttack);
+        enemyHealth = Math.max(0, enemyHealth - damage);
         console.log(
           playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
         );
@@ -43,8 +45,8 @@ var fight = function(enemyName) {
           window.alert(enemyName + " still has " + enemyHealth + " health left.");
         }
       
-        
-        playerHealth = playerHealth - enemyAttack;
+        var damage = randomNumber(enemyAttack - 3, enemyAttack);
+        playerHealth = Math.max(0, playerHealth - damage);
         console.log(
           enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
         );
@@ -67,7 +69,7 @@ var fight = function(enemyName) {
         if (playerHealth > 0) {
             window.alert("Welcome to Robo Dome! Round " + (i + 1));
             var pickedEnemyName = enemyNames[i];
-            enemyHealth = 50;
+            enemyHealth = randomNumber(40, 60);
             fight(pickedEnemyName);
             if (playerHealth > 0 && i < enemyNames.length - 1) {
                 var storeConfirm = window.confirm("The fight is over, visit the store before next round?");
@@ -138,4 +140,9 @@ var shop = function() {
     }
 };
 
-    startGame();
+console.log(enemyInfo);
+console.log(enemyInfo[0]);
+console.log(enemyInfo[0].name);
+console.log(enemyInfo[0]['attack']);
+
+startGame();
